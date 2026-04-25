@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                // TODO: Before pushing to GitHub, REPLACE this URL with YOUR repository URL.
-                git branch: 'main', url: 'https://github.com/malik-qasim/JavaMaven.git'
+                // Points Jenkins to clone YOUR actual repository:
+                git branch: 'main', url: 'https://github.com/ashtarali4/Lab10-Pipeline.git'
             }
         }
         
