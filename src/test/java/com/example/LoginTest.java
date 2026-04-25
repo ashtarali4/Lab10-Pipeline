@@ -21,6 +21,9 @@ public class LoginTest {
         // so we skipped the System.setProperty line to ensure it runs well on Jenkins/EC2.
         WebDriver driver = new ChromeDriver(options);
         
+        // Set wait BEFORE trying to find elements so it waits for the page to finish loading!
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        
         // Note: URL from the lab screenshots, wait until loading completes
         driver.navigate().to("http://103.139.122.250:4000/");
         
@@ -30,9 +33,6 @@ public class LoginTest {
         
         // Click the submit button
         driver.findElement(By.id("m_login_signin_submit")).click();
-        
-        // Wait implicitly for elements (5 seconds)
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         
         // Assuming the XPath points to the error message div
         String errorText = driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/div/div[2]/form/div[1]")).getText();
